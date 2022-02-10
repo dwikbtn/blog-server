@@ -6,6 +6,7 @@ const app = express();
 
 mongoose.connect("mongodb://localhost/blog");
 const articleRouter = require("./routes/articles");
+const apiRouter = require("./routes/api");
 app.set("view engine", "ejs");
 
 app.use(express.json()); // for parsing application/json
@@ -25,5 +26,10 @@ app.get("/", async (req, res) => {
 
 // this router wiill redirect all to /router and function articleRouter
 app.use("/articles", articleRouter);
+app.use("/api", apiRouter);
 
-app.listen(5000);
+//port
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`server running on ${port}`);
+});
