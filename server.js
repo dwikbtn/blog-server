@@ -18,7 +18,7 @@ app.get("/", async (req, res) => {
     date: "desc",
   });
   try {
-    res.render("articles/index", { articles: articles });
+    res.render("articles/index", { articles });
   } catch (error) {
     console.log(error, "here");
   }
