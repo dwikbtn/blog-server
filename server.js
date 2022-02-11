@@ -3,8 +3,12 @@ const mongoose = require("mongoose");
 const Article = require("./models/article");
 const methodOverride = require("method-override");
 const app = express();
+require("dotenv").config();
 
-mongoose.connect("mongodb://localhost/blog");
+// connect to db
+
+mongoose.connect(process.env.DBURI).catch((error) => console.log(error));
+
 const articleRouter = require("./routes/articles");
 const apiRouter = require("./routes/api");
 app.set("view engine", "ejs");
