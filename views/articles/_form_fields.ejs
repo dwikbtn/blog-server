@@ -10,6 +10,17 @@
   />
 </div>
 <div class="mb-3">
+  <label for="cover" class="form-label">cover image link</label>
+  <input
+    type="text"
+    name="cover"
+    required
+    value=" <%= article.cover %>"
+    class="form-control d-block"
+    id="cover"
+  />
+</div>
+<div class="mb-3">
   <label for="description" class="form-label">description</label>
   <textarea name="description" class="form-control" id="description">
 <%= article.description %></textarea
