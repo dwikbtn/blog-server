@@ -34,6 +34,9 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  highlight: {
+    type: Boolean,
+  },
 });
 
 articleSchema.pre("validate", function (next) {

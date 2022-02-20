@@ -52,6 +52,11 @@ function saveArticleAndRedirect(path) {
     article.description = req.body.description;
     article.markdown = req.body.markdown;
     article.cover = req.body.cover;
+    if (req.body.highlight == "true ") {
+      article.highlight = true;
+    } else {
+      article.highlight = false;
+    }
     try {
       article = await article.save();
       res.redirect(`/articles/${article.slug}`);
